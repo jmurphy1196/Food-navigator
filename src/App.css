@@ -40,3 +40,7 @@
 .title{
   font-size: 2rem;
 }
+.rest-name{
+  text-align: center;
+  text-transform: capitalize;
+}

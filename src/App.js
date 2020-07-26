@@ -2,21 +2,22 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Switch, Route} from 'react-router-dom';
 
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
 
 import Test from './component/Test';
 import Navbar from './component/Navbar';
 import ReactCenter from 'react-center';
+import {ShopConsumer} from './contex';
+import {ApolloProvider} from 'react-apollo';
+import Tester from './component/Tester';
+import Details from './component/Details';
 
 
-const client = new ApolloClient({
-    uri: "http://localhost:1337/graphql"
-  });
+
 
 
 
@@ -33,20 +34,17 @@ class App extends Component {
   return (
       <React.Fragment>
         <Navbar />
-
-        <ApolloProvider client={client}>
-             <div className='container'>
-              <ReactCenter>
- 
-                 <div className='row  my-2 mx-auto p-1'>
-                 <h2 className='titleo'>Tuolumne Food Navigator</h2>
-                 </div>
-                 </ReactCenter>
+      
+      <Switch>
+            
+            <Route exact path='/' component={Test}/>
+            <Route  path='/details' component={Details}/>
+            
 
 
-             </div>
+      </Switch>
 
-          </ApolloProvider>
+
 
       </React.Fragment>
   );

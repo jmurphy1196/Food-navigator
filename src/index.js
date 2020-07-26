@@ -3,10 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {ShopProvider} from './contex';
+import { BrowserRouter as Router } from 'react-router-dom';
+import {ApolloProvider} from 'react-apollo';
+import {ShopConsumer} from './contex';
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+   
+   
+    <ShopProvider>
+      <ShopConsumer>
+          {(value) => {
+            return (   
+               <ApolloProvider client={value.mainClient} >
+              <Router>
+                     <App />
+              </Router>
+              </ApolloProvider>)
+          }}
+      </ShopConsumer>
+  
+       
+    </ShopProvider>
+  
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import {ShopConsumer} from '../contex';
 
 export default function Navbar() {
     return (
@@ -15,7 +16,11 @@ export default function Navbar() {
         <ul className='navbar-nav align-items-center'>
                     <li className='nav-item ml-5'>
                        
-                       <input type='text' placeholder='search...'/>
+                       <ShopConsumer>
+                           {value => {
+                               return (<input className='form-control' type='text' placeholder='search...' onChange={value.getInput}/>)
+                           }}
+                       </ShopConsumer>
                         
                     </li>
                   
