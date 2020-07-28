@@ -8,12 +8,12 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 
-import Test from './component/Test';
+import RestaurantList from './component/RestaurantList';
 import Navbar from './component/Navbar';
 import ReactCenter from 'react-center';
 import {ShopConsumer} from './contex';
 import {ApolloProvider} from 'react-apollo';
-import Tester from './component/Tester';
+
 import Details from './component/Details';
 
 
@@ -37,7 +37,7 @@ class App extends Component {
       
       <Switch>
             
-            <Route exact path='/' component={Test}/>
+            <Route exact path='/' component={RestaurantList}/>
             <Route  path='/details' component={Details}/>
             
 

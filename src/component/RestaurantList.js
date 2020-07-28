@@ -9,7 +9,7 @@ import Restaurant from './Restaurant';
 import {ShopConsumer} from '../contex';
 
 
-const Test = () => (
+const RestaurantList = () => (
     <Query
       query={gql`
         {
@@ -21,6 +21,9 @@ const Test = () => (
                 url
             }
             address
+            menu
+            hours_of_operation
+            map
           }
         }
       `}
@@ -72,7 +75,7 @@ const Test = () => (
       }}
     </Query>
   );
-  export default Test;
+  export default RestaurantList;
 
   const Loader = styled.div`
         position: fixed;

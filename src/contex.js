@@ -8,10 +8,10 @@ import ApolloClient from "apollo-boost";
 
 
 const client = new ApolloClient({
-    uri: "http://localhost:1337/graphql"
-  });
+    uri: "http://localhost:1337/graphql" //change according to where server is located
+  }); 
 
-const ShopContext = React.createContext();
+const ShopContext = React.createContext(); 
 
  class ShopProvider extends Component {
     
@@ -20,7 +20,8 @@ const ShopContext = React.createContext();
         this.state = {
             title: 'tuolumne food nav',
             mainClient: client,
-            input: ''
+            input: '',
+            currentDetails: { id: 20000, name: 'err', img: [{url: 'tests'}], hours_of_operation: 'Monday: 6:30AM-1AM Tuesday: 6:30AM-1AM Wednesday: 6:30AM-1AM Thursday: 6:30AM-1AM Friday: 6:30AM-1AM Saturday: 6:30AM-1AM Sunday: 6:30AM-1AM', map: 'err'  }
         }
     }
 
@@ -34,12 +35,30 @@ const ShopContext = React.createContext();
             }
         }, () => console.log(this.state));
     }
+
+    getDetails = (id, name, address, img, hours_of_operation, menu, map) => {
+            this.setState(() => {
+
+                return {
+                    currentDetails: {
+                        id,
+                        name,
+                        address,
+                        img,
+                        hours_of_operation,
+                        menu,
+                        map
+                    }
+                }
+            }, () => console.log(this.state));
+    }
     
     render() {
         return (
            <ShopContext.Provider value={{
                ...this.state,
-               getInput: this.getInput
+               getInput: this.getInput,
+               getDetails: this.getDetails
            }}>
 
             {this.props.children}

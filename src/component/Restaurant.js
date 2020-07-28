@@ -4,32 +4,34 @@ import {ShopConsumer} from '../contex';
 import ReactCenter from 'react-center';
 import {Link} from 'react-router-dom';
 export default function Restaurant(props) {
-    const img = `http://localhost:1337${props.data.img[0].url}`;
-    console.log(img)
-    console.log(props.data);
+    const img = `http://localhost:1337${props.data.img[0].url}`; //img url used for src
+  
     return (
         <RestaurantWrapper className='col-9 mx-auto col-md-6 col-lg-4 my-3'>
-            <div className='card'>
-                <h4 className='rest-name'>{props.name}</h4>
-
-                <ShopConsumer>
+           
+             <ShopConsumer>
                     {(value) => {
                         return (
-                            <Link to='/details'>
+                            <div className='card' onClick={() => value.getDetails(props.data.id, props.name, props.data.address, props.data.img, props.data.hours_of_operation, props.data.menu, props.data.map)}>
+                            <h4 className='rest-name'>{props.name}</h4>
+
+              
+                            <Link to='/details' >
                            <ReactCenter>
                                 <div className='img-container p-5'>
                                 <img src={img} className='card-img-top'/>
                             </div>
                            </ReactCenter>
                            </Link>
-                        )
-                    }}
-                </ShopConsumer>
+                  
                 <div className='card-footer d-flex justify-content-between'>
         
                    <h5 className='text-blue font-italic mb-0 text-center mx-auto'>{props.data.address}</h5> 
                         </div>
             </div>
+                  )
+                }}
+            </ShopConsumer>
 
         </RestaurantWrapper>
         

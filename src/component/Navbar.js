@@ -6,10 +6,12 @@ import {ShopConsumer} from '../contex';
 export default function Navbar() {
     return (
        <NavWrapper className='navbar navbar-expand-sm bg-primary navbar-dark px-sm-5'>
-
-       <div className='main_title'>
-       <span className='title'>TuolFoodNav</span>
-       </div>
+        <Link to='/'>
+        <div className='main_title'>
+       <span className='title'>Foodie</span>
+       </div> 
+        </Link>
+       
 
        
 
@@ -66,5 +68,11 @@ const NavWrapper = styled.nav`
         input:hover{
             transform: scale(1.1);
         }
+
+        @media only screen and (max-width: 375px) {
+            .title{
+               font-size: .89rem;
+            }
+}
 
 `;
