@@ -8,7 +8,7 @@ import ApolloClient from "apollo-boost";
 
 
 const client = new ApolloClient({
-    uri: "http://localhost:1337/graphql" //change according to where server is located
+    uri: "https://second-project-284802.wm.r.appspot.com/graphql" //change according to where server is located
   }); 
 
 const ShopContext = React.createContext(); 

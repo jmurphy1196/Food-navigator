@@ -58,6 +58,9 @@ const NavWrapper = styled.nav`
             
             
         }
+        .title:hover{
+          font-size: 1.3rem;
+        }
         input {
             position: absolute;
             left: 25vw;
@@ -72,6 +75,9 @@ const NavWrapper = styled.nav`
         @media only screen and (max-width: 375px) {
             .title{
                font-size: .89rem;
+            }
+            .title:hover{
+               font-size: 1rem;
             }
 }
 

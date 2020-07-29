@@ -17,7 +17,7 @@ export default function Details() {
                 
                 const {id, name, address, img, hours_of_operation, menu, map} = value.currentDetails;
                 
-                 const imgUrl = 'http://localhost:1337' + img[0].url;
+                 const imgUrl =  img[0].url;
                
                    let hours = hours_of_operation.split(' ') //split the days and hours seperate from eachother, example: 'monday: 12-10pm becomes [monday:, 12-10] 
 

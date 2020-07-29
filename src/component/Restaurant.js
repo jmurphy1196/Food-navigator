@@ -4,7 +4,7 @@ import {ShopConsumer} from '../contex';
 import ReactCenter from 'react-center';
 import {Link} from 'react-router-dom';
 export default function Restaurant(props) {
-    const img = `http://localhost:1337${props.data.img[0].url}`; //img url used for src
+    const img = props.data.img[0].url; //img url used for src
   
     return (
         <RestaurantWrapper className='col-9 mx-auto col-md-6 col-lg-4 my-3'>
@@ -16,13 +16,14 @@ export default function Restaurant(props) {
                             <h4 className='rest-name'>{props.name}</h4>
 
               
-                            <Link to='/details' >
-                           <ReactCenter>
+                         <ReactCenter>   <Link to='/details' >
+                           
                                 <div className='img-container p-5'>
                                 <img src={img} className='card-img-top'/>
                             </div>
-                           </ReactCenter>
+                          
                            </Link>
+                           </ReactCenter>
                   
                 <div className='card-footer d-flex justify-content-between'>
         
@@ -40,7 +41,7 @@ export default function Restaurant(props) {
 
 const RestaurantWrapper = styled.div`
      .card{
-            border-color: transparent;
+            border-color: rgba(0,0,0,0.1);
             transition: all 0.2s linear;
         }
         .card-footer{
@@ -52,7 +53,7 @@ const RestaurantWrapper = styled.div`
         &:hover{
             .card{
                 border: 0.04rem solid rgba(0,0,0,0.2);
-                box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+                box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
                 
             }
             .card-footer{
@@ -62,6 +63,8 @@ const RestaurantWrapper = styled.div`
         .img-container{
             position: relative;
             overflow: hidden;
+            
+            
         }
         .card-img-top{
                 transition: all 0.2s linear;
@@ -75,6 +78,8 @@ const RestaurantWrapper = styled.div`
             height: 175px;
         }
        
+      
+
    
 
 `;
